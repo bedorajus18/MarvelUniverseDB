@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HeroController!{% endblock %}
+{% block title %}Hello OrganizationController!{% endblock %}
 
 {% block body %}
 <style>
@@ -9,7 +9,8 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Nouvelle liste des héros </h1>
-    <p>il y a {{listeHeros | length}} personnes dans cette liste</p>
-</div>
+    {% for organization in listeOrganizations %}
+    <p> {{organization.name}}: {{organization.city}} </p>
+{%endfor%}
+   </div>
 {% endblock %}

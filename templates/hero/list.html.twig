@@ -9,7 +9,8 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Nouvelle liste des héros </h1>
-    <p>il y a {{listeHeros | length}} personnes dans cette liste</p>
-</div>
+    {% for hero in listeHeros %}
+    <p>hero: {{hero.pseudo}} </p>
+{%endfor%}
+   </div>
 {% endblock %}

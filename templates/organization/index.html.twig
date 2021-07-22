@@ -9,12 +9,8 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/stagiaire/Documents/symfony/MarvelUniverseDB/src/Controller/OrganizationController.php'|file_link(0) }}">src/Controller/OrganizationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/stagiaire/Documents/symfony/MarvelUniverseDB/templates/organization/index.html.twig'|file_link(0) }}">templates/organization/index.html.twig</a></code></li>
-    </ul>
+  <h1> Nouvelle liste des organisations  </h1>
+    <p>il y a {{listeOrganizations | length}} organisations dans cette liste</p>
+   
 </div>
 {% endblock %}
