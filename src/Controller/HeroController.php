@@ -22,7 +22,7 @@ class HeroController extends AbstractController
     }
 
 
-/**
+    /**
      * @Route("/hero/list", name="liste_hero")
      */
     public function list(HeroService $heroService): Response
@@ -31,5 +31,11 @@ class HeroController extends AbstractController
         return $this->render('hero/list.html.twig',
         ['listeHeros'=>$listeHeros] );
     }
-    
+    /**
+    * @Route("/hero/creer", name="creer_hero")
+    */
+    public function newHero():Response
+    {
+        return $this->render('hero/creer.html.twig',[]);
+    }
 }

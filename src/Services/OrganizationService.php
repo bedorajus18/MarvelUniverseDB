@@ -2,18 +2,22 @@
 namespace App\Services;
 
 use App\Entity\Organization;
+use Doctrine\ORM\EntityManagerInterface;
 
 class OrganizationService
 {
+    private $_entityManager;
     private $_listeOrganizations = [];
     
     public function getList()
     {
+       
         return $this->_listeOrganizations;
     }
 
-    function __construct()
+    function __construct(EntityManagerInterface $em)
     {
+        $this->_entityManager=$em;
         $this->addOrganization(new Organization('Harley','Gotham City'));
         $this->addOrganization(new Organization('Brice','New York'));
         $this->addOrganization(new Organization('Clark','Metropolis'));
@@ -23,6 +27,8 @@ class OrganizationService
     function addOrganization($pOrganization)
     {
         array_push($this->_listeOrganizations,$pOrganization);
+        $this->_entityManager->persist($pOrganization);
+            $this->_entityManager->flush();
     }
         public function getOrganization($pId)
         {

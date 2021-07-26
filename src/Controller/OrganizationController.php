@@ -22,12 +22,11 @@ class OrganizationController extends AbstractController
     }
     
     /**
-     * @Route("/organization/list", name="liste_organization")
+     * @Route("/organization/creer", name="creer_organization")
      */
-    public function list(OrganizationService $OrganizationService): Response
+   
+    public function newOrganization():Response
     {
-        $listeOrganizations =$OrganizationService->getList();
-        return $this->render('organization/list.html.twig',
-        ['listeOrganizations'=>$listeOrganizations] );
+        return $this->render('organization/creer.html.twig',[]);
     }
 }
