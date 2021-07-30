@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Entity\Organization;
@@ -8,42 +9,42 @@ class OrganizationService
 {
     private $_entityManager;
     private $_listeOrganizations = [];
-    
-    public function getList()
+
+    public function __construct(EntityManagerInterface $em)
     {
-       
-        return $this->_listeOrganizations;
+        $this->_entityManager = $em;
+        $this->_listeOrganizations = $this->_entityManager->getRepository(Organization::class)->findAll();
     }
 
-    function __construct(EntityManagerInterface $em)
+    public function getList()
     {
-        $this->_entityManager=$em;
-        $this->addOrganization(new Organization('Harley','Gotham City'));
-        $this->addOrganization(new Organization('Brice','New York'));
-        $this->addOrganization(new Organization('Clark','Metropolis'));
-        $this->addOrganization(new Organization('Diana','Calfornie'));
+       return $this->_listeOrganizations;
     }
 
     function addOrganization($pOrganization)
     {
-        array_push($this->_listeOrganizations,$pOrganization);
+        array_push($this->_listeOrganizations, $pOrganization);
         $this->_entityManager->persist($pOrganization);
-            $this->_entityManager->flush();
+        $this->_entityManager->flush();
     }
-        public function getOrganization($pId)
+
+    public function getOrganization($pId)
+    {
+        $find = false;
+        $organization = $this->_entityManager->getRepository(Organization::class)->find($pId);
+        if (isset($organization))
+            $find = true;
+        return  ['found'=>$find,'organization'=>$organization];
+    }
+
+    public function delOrganization($pId)
+    {
+        $organization = $this->getOrganization($pId);
+        if ($organization['found']== true)
         {
-            $find = false;
-            $organization = null;
-            $i = 0; 
-            while (($i < count($this->_listeOrganizations))||$find == false)
-            {
-                if ($this->_listeOrganizations[$i]->getId()==$pId)
-                {
-                    $find = true;
-                $organization = $this->_listeOrganizations[$i];
-                }
-                $i++;
-            }
-            return ['found'=>$find,'organization'=>$organization];
+            $this->_entityManager->remove($organization['hero']);
+            $this->_entityManager->flush();
         }
+        
     }
+}

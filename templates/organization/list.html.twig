@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello OrganizationController!{% endblock %}
+{% block title %} Hello OrganizationController!{% endblock %}
 
 {% block body %}
 <style>
@@ -11,6 +11,6 @@
 <div class="example-wrapper">
     {% for organization in listeOrganizations %}
     <p> {{organization.name}}: {{organization.city}} </p>
-{%endfor%}
+    {% endfor %}
    </div>
 {% endblock %}

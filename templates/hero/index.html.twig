@@ -9,7 +9,12 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Nouvelle liste des héros </h1>
-    <p>il y a {{listeHeros | length}} personnes dans cette liste</p>
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/Users/Adminvia/Documents/DWWM/symfony/MarvelUniverseDB/src/Controller/HeroController.php'|file_link(0) }}">src/Controller/HeroController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/Users/Adminvia/Documents/DWWM/symfony/MarvelUniverseDB/templates/hero/index.html.twig'|file_link(0) }}">templates/hero/index.html.twig</a></code></li>
+    </ul>
 </div>
 {% endblock %}

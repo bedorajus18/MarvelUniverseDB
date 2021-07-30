@@ -9,10 +9,6 @@
 </style>
 
 <div class="example-wrapper">
-  <h1> Nouvelle liste des organisations ({{listeOrganizations|length}}) </h1>
-    {% for organization in listeOrganizations %}
-    <p> {{organization.name}}: {{organization.city}} </p>
-    {% endfor %}
-   
+  {{form(formulaire)}}
 </div>
 {% endblock %}

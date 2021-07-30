@@ -9,10 +9,9 @@
 </style>
 
 <div class="example-wrapper">
-  <h1> Nouvelle liste des organisations ({{listeOrganizations|length}}) </h1>
-    {% for organization in listeOrganizations %}
-    <p> {{organization.name}}: {{organization.city}} </p>
-    {% endfor %}
-   
+  <h1></h1>
+<p>{{organization.name()}} {{organization.city()}}</p>
+<a href="/organization/delete/{{organization.getId()}}"><button type="submit">supprimer</button>
+</a>
 </div>
 {% endblock %}

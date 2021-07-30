@@ -1,3 +1,4 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello HeroController!{% endblock %}
@@ -9,15 +10,5 @@
 </style>
 
 <div class="example-wrapper">
-    {% for hero in heroList %}
-   <li>{{hero.pseudo}}</li>
-   <a href="/hero/{{hero.getId()}}">détails</a>
-   {% endfor %}
-
-{# Ou bien, on peut 
-<a href="/hero/{{hero.getId()}}"><button>détails</button></a>
-   </li>
-#}
-
-   </div>
+Ce héro a rejoint l'univers: {{hero.pseudo}}</div>
 {% endblock %}
